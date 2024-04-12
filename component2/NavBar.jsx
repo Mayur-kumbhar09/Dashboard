@@ -9,9 +9,9 @@ import avatar3 from "./Image/avatar3.png"
 
 const NavBar = () => {
     return (
-        <Box sx={{ width: "65%", display:"flex",height:"100px", justifyContent:"space-evenly", paddingTop:"44px", }}>
+        <Box sx={{ width: "55%", display:"flex",height:"100px", justifyContent:"space-evenly", paddingTop:"44px",position:"fixed" }}>
             <Box>
-                <img src={img} alt="logo" className='img-fluid'width="45px"/>
+                <img src={img} alt="logo" className='img-fluid' width="45px"/>
             </Box>
             <AvatarGroup sx={{width:"120px",height:"120px"}}>
                 <Avatar alt="Remy Sharp" src={avatar1}  sx={{ width: 52, height: 52 }} />
