@@ -1,18 +1,12 @@
 import React, { useState } from "react";
-import { Grid, Box, styled, Paper, Button } from "@mui/material";
+import {  Box, Button } from "@mui/material";
 import { useForm } from "react-hook-form";
 import TextField from "@mui/material/TextField";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import JobDashbord from "./job/JobDashbord"
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
+
 
 const JobSearch = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -41,9 +35,7 @@ const JobSearch = () => {
   return (
 
     <div>
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <Item>
+          <Box>
             <form
               onSubmit={handleSubmit(onSubmit)}
               style={{
@@ -51,7 +43,7 @@ const JobSearch = () => {
                 flexDirection: "row",
                 justifyContent: "center",
                 alignItems: "center",
-                padding: "20px 10px",
+                padding: "0px 10px",
                 margin: "auto",
                 width: "75%",
               }}
@@ -101,14 +93,10 @@ const JobSearch = () => {
                 <MenuItem onClick={handleClose}>Logout</MenuItem>
               </Menu>
             </Box>
-          </Item>
-        </Grid>
-        <Grid item xs={12}>
-          <Item>
+          </Box>
+          <Box>
             <JobDashbord />
-          </Item>
-        </Grid>
-      </Grid>
+          </Box>
     </div>
   );
 };

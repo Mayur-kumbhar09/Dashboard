@@ -1,118 +1,109 @@
 import React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-import InputLabel from "@mui/material/InputLabel";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import TableContent from "./TableContent";
+import { Typography, Button, Box } from "@mui/material";
+import js from "../image/lang_logos/js.png";
+import react from "../image/lang_logos/react.png";
+import html from "../image/lang_logos/html.png";
+import node from "../image/lang_logos/node.png";
+import python from "../image/lang_logos/python.png";
+import java from "../image/lang_logos/java.png";
+import angular from "../image/lang_logos/angular.png";
+import php from "../image/lang_logos/php.png";
+import ruby from "../image/lang_logos/Ruby_On_Rails.png";
+import dotnet from "../image/lang_logos/dotnet.png";
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import { Divider } from "@mui/material";
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
+import { useNavigate } from "react-router-dom";
 
-const pages = ["Low", "Medium", "High"];
-const problemSelector = ["Algorithm" , "DSA" , "Database","Shell","Concurency","JavaScript","Pandas", "Array" , "Matrix" , "Pattern"];
+// Image and Language mapping
+const langArry = [
+  { id: 1, langImage: html, language: "HTML" },
+  { id: 2, langImage: js, language: "JAVASCRIPT" },
+  { id: 3, langImage: node, language: "NODE JS" },
+  { id: 4, langImage: react, language: "REACT" },
+  { id: 5, langImage: java, language: "JAVA" },
+  { id: 6, langImage: angular, language: "ANGULAR" },
+  { id: 7, langImage: python, language: "PYTHON" },
+  { id: 8, langImage: php, language: "PHP" },
+  { id: 9, langImage: ruby, language: "RUBY ON RAILS" },
+  { id: 10, langImage: dotnet, language: "DOT-NET" },
+  { id: 11, langImage: "", language: "Upcoming" } // Placeholder for upcoming
+];
+
 const TestSkills = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const handleChange = (event) => {
-  };
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
+  const navigate = useNavigate();
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+  const navigateToCodeEditor = () => {
+    navigate("/testSkills/codeEditor");
   };
 
   return (
-    <div>
-      <AppBar
-        position="static"
-        sx={{ backgroundColor: "transparent", marginTop: "-12px" }}
-      >
-        <Container maxWidth="xl">
-          <Toolbar disableGutters sx={{ backgroundColor: "transparent" }}>
-            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-              >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
-                sx={{
-                  display: { xs: "block", md: "none" },
-                }}
-              >
-                {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center" sx={{ color: "#000" }}>
-                      {page}
-                    </Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Box>
-            <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+    <>
+      <Box sx={{
+        margin: "8px 0px",
+        display: "flex",
+        flexDirection: "column"
+      }}>
+        <Typography variant="h4"
+          sx={{
+            padding: "14px 12px",
+            fontWeight: "600",
+            fontFamily: "Nova Square",
+            color: "#7275ff",
+            textAlign: "center",
+          }}>
+          Select any one of them to learn!
+        </Typography>
 
-            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-              <FormControl variant="standard" sx={{ minWidth: 95 , my:2 }}>
-                <InputLabel id="demo-simple-select-standard-label">
-                  Range
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-standard-label"
-                  id="demo-simple-select-standard"
-                  onChange={handleChange}
-                  label="Age"
-                  name="selectedFruit"
-                >
-                  {pages.map((page) => (
-                    <MenuItem value={page}>{page}</MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-              {problemSelector.map((page) => (
-                <Button
-                  key={page}
-                  onClick={handleCloseNavMenu}
-                  sx={{
-                    color: "#000",
-                    border: "0.5px solid #ffffff",
-                    borderRadius: "15px",
-                    margin: "0px 10px",
-                  }}
-                >
-                  {page}
-                </Button>
-              ))}
-            </Box>
-          </Toolbar>
-        </Container>
-      </AppBar>
-      <TableContent />
-    </div>
+        <Divider sx={{
+          width: "520px",
+          height: "8px",
+          "&::before, &::after": {
+            borderColor: "secondary.light",
+          },
+          backgroundColor: "orange",
+          color: "#7275ff",
+          borderRadius: "15px",
+          margin: "auto",
+          boxShadow: "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px"
+        }} />
+      </Box>
+
+      <Box sx={{ display: "flex", flexWrap: "wrap",gap:5, padding: "16px 14px" }}>
+        {langArry.map((data) => (
+          <Card sx={{
+            maxWidth: 240, margin: "8px",
+            boxShadow: "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset"
+          }} key={data.id}>
+            {data.id === langArry.length ? (
+              <Stack spacing={1}>
+                <Skeleton variant="rectangular" width={210} height={210} sx={{ textAlign: "center", paddingTop: "8px", fontSize: "1.3em" }} >Upcoming...</Skeleton>
+                <Skeleton variant="rounded" width={210} height={60} />
+              </Stack>
+            ) : (
+              <>
+                <CardMedia sx={{ margin: "8px", textAlign: "center", height: "285px" }}>
+                  <img src={data.langImage} alt={data.language} height="85%" width="100%" style={{ margin: "auto", padding: "4px" }} />
+                </CardMedia>
+                <CardContent sx={{ textAlign: "center" }}>
+                  <Button variant="contained"
+                    onClick={navigateToCodeEditor}
+                    sx={{
+                      backgroundColor: "#f8285a", padding: "8px 10px", fontWeight: "600",
+                      fontFamily: "Nova Square", color: "#ffffff", fontSize: "1em",
+                    }}>
+                    Code {data.language}
+                  </Button>
+                </CardContent>
+              </>
+            )}
+          </Card>
+        ))}
+      </Box>
+    </>
   );
 };
 

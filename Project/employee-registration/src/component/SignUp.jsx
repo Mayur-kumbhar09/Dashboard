@@ -106,6 +106,22 @@ const SignUp = () => {
               sx={{ margin: "12px 7px" }}
               variant="standard"
               type="Text"
+              placeholder="UserName"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <PersonIcon />
+                  </InputAdornment>
+                ),
+              }}
+              {...register("UserName", { required: true })}
+            />
+            {errors.exampleRequired && <span>This field is required</span>}
+            <TextField
+              fullWidth
+              sx={{ margin: "12px 7px" }}
+              variant="standard"
+              type="Text"
               placeholder="FirstName"
               InputProps={{
                 startAdornment: (
